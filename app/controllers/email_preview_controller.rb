@@ -18,7 +18,7 @@ class EmailPreviewController < ApplicationController
       @parts.detect {|p| p.content_type && p.content_type.include?('text/plain') }
     end
     @part ||= @parts.first
-    render :text => @part.body.to_s
+    render :html => @part.body.to_s
   end
   private
   def enforce_allowed_environments
