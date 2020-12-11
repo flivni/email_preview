@@ -20,7 +20,8 @@ module EmailPreview
       end
       mail
     end
-    alias_method_chain :preview, :transaction
+    alias_method :preview_without_transaction, :preview
+    alias_method :preview, :preview_with_transaction
   end
 
 end
