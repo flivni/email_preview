@@ -1,9 +1,9 @@
 class EmailPreviewController < ApplicationController
   layout false
 
-  before_filter :enforce_allowed_environments
-  around_filter :set_delivery_method, :only => :deliver
-  before_filter :build_email, :only => [:show, :deliver, :details, :preview]
+  before_action :enforce_allowed_environments
+  around_action :set_delivery_method, :only => :deliver
+  before_action :build_email, :only => [:show, :deliver, :details, :preview]
 
   def deliver
     session[:email_preview_to] = params[:to]
